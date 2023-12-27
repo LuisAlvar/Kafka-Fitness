@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "additionalProperties": false,
+  "definitions": {
+    "HeartRate": {
+      "additionalProperties": false,
+      "properties": {
+        "DateTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Value": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "StepCount": {
+      "additionalProperties": false,
+      "properties": {
+        "DateTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Value": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "properties": {
+    "DeviceId": {
+      "format": "guid",
+      "type": "string"
+    },
+    "HeartRates": {
+      "items": {
+        "$ref": "#/definitions/HeartRate"
+      },
+      "type": "array"
+    },
+    "MaxHeartRate": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "StepCounts": {
+      "items": {
+        "$ref": "#/definitions/StepCount"
+      },
+      "type": "array"
+    }
+  },
+  "title": "Biometrics",
+  "type": "object"
+}
